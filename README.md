@@ -18,7 +18,7 @@ Transformers, the main additional dependencies are `requests`,
 `nltk`, and `spacy`, but `nltk` and `spacy` are needed only for
 English-specific sentence splitting and filters.
 
-For the Mistral servers, use `mistral-env.yml'.
+For the Mistral servers, use `mistral-env.yml`.
 
 ## Serve your language model
 
