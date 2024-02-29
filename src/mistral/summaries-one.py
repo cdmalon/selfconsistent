@@ -1,0 +1,33 @@
+import json
+import tqdm
+import sys
+import re
+
+import llmsingleclient
+
+in_fp = open(sys.argv[1], "r")
+all = in_fp.read()
+struct = json.loads(all)
+in_fp.close()
+
+done = {}
+for example in tqdm.tqdm(struct):
+  hash = example["hash"]
+  if hash in done:
+    continue
+  done[hash] = 1
+
+  document = example["article"]
+  document = re.sub(r"\.([a-zA-Z])", ". \\1", document)
+  document = re.sub(r"([a-z])([A-Z])", "\\1 \\2", document)
+  document = re.sub(r"Share this with Email Facebook Messenger Messenger Twitter Pinterest Whats App Linked In Copy this link", "", document)
+
+  base_prompt = "<s>[INST] Summarize the following article.\nArticle: " + document + "\nSummary: [/INST] "
+
+  prediction = llmsingleclient.camel([base_prompt], verbose=False)
+
+  n = len(base_prompt)
+  prediction = prediction[n:]
+
+  print(json.dumps({"article": document, "hash": hash, "summary": prediction}))
+
