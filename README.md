@@ -1,7 +1,7 @@
 # Self Consistent Decoding
 
-This repository supplements the paper, "Self-Consistent Decoding for
-More Factual Open Responses," by Christopher Malon and Xiaodan Zhu.
+This repository supplements the paper, "[Self-Consistent Decoding for
+More Factual Open Responses](https://arxiv.org/abs/2403.00696)," by Christopher Malon and Xiaodan Zhu.
 
 ## Requirements
 
