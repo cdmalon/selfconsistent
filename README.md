@@ -112,7 +112,7 @@ perl split-by-hash.pl all-outputs.jsonl cnn-outputs.jsonl xsum-outputs.jsonl
 where `all-outputs.jsonl` is the merged output file and the other two
 files are to be created.
 
-## Human evaluations
+## Human evaluations: "LlamaFrank" dataset
 
 In the JSONL file in the human-eval subdirectory, each line represents
 one system's outputs on one of the 50 articles.  The index is the
